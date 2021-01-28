@@ -85,7 +85,8 @@ def scrape():
         
         # Return back after first click because it will be in the second page
         browser.back()
-    print(data_holder)
+    return data_holder
+scrape()
 
 
 
