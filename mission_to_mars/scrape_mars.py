@@ -11,7 +11,7 @@ import pandas as pd
 
 # Retrive page with the requests module
 def init_browser():
-    executable_path = {'executable_path': "C:\Windows\chromedriver"}
+    executable_path = {'executable_path': ChromeDriverManager().install()}
     return Browser('chrome', **executable_path, headless=False)
 
 
@@ -20,9 +20,9 @@ def scrape():
     browser=init_browser()
     data_holder={}
 
-    url="https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest"
+    url1="https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest"
     # Create BeautifulSoup object parse with html
-    browser.visit(url)
+    browser.visit(url1)
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
     #Find main class of text and parg
@@ -32,21 +32,18 @@ def scrape():
         data_holder["news_p"] = slide.find('div', class_='rollover_description_inner').text.strip()  
         data_holder["news_title"]=slide.h3.text
     # Close the browser after scraping
-    browser.quit()
-    browser=init_browser()
-    url="https://www.jpl.nasa.gov/images/new-all-in-one-antenna-for-the-deep-space-network/"
-    browser.visit(url)
+    url2="https://www.jpl.nasa.gov/images/new-all-in-one-antenna-for-the-deep-space-network/"
+    browser.visit(url2)
     # html object
     html=browser.html
     soup=BeautifulSoup(html,"html.parser")
     img_page = soup.find_all('div', class_='relative bg-black border border-black')
     for pic in img_page:
         data_holder["feature_image_url"] = pic.img["src"]
-    browser.quit()
 
-    url="https://space-facts.com/mars/"
+    url3="https://space-facts.com/mars/"
 
-    tables = pd.read_html(url)
+    tables = pd.read_html(url3)
     # get first table from the list
     print(len(tables))
     mars_fact_df=tables[0]
@@ -61,15 +58,13 @@ def scrape():
     html_table = mars_fact_df.to_html()  
     #replace new line with white space
     data_holder["mars_table"]=html_table.replace('\n', '')
-    browser.quit()
-
-    browser=init_browser()
-    url="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
-    browser.visit(url)
+    print(data_holder["mars_table"])
+    url4="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    browser.visit(url4)
     html=browser.html
     soup=BeautifulSoup(html,"html.parser")
     
-    hemisphere_image_urls=[]
+    data_holder["hemisphere_image_urls"]=[]
     links = browser.find_by_css("a.itemLink.product-item h3")
     print(len(links))
     for item in range(len(links)):
@@ -86,15 +81,13 @@ def scrape():
         hemisphere["title"] = browser.find_by_css("h2.title").text
         
         # Append Hemisphere Object to List
-        hemisphere_image_urls.append(hemisphere)
+        data_holder["hemisphere_image_urls"].append(hemisphere)
         
         # Return back after first click because it will be in the second page
         browser.back()
-    
-    return data_holder
+    print(data_holder)
 
 
-data_holder=scrape()
 
 
 
