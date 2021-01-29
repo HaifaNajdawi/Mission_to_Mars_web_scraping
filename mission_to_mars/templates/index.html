@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    Mars Planet
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars Planet </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
@@ -12,22 +14,25 @@
             <h1>
                 Mession to Mars
             </h1>
+        </div>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Mars picture</a></p>
             <h4>
                 Latest Mars News
 
             </h4>
             <p class="bold">
-                {{data_holder.news.title}}
+                {{ data_holder.news_title }}
             </p>
             <p>
-                {{data_holder.news.p}}
+                {{ data_holder.news_p }}
             </p>
             <div class="row">
                 <div class="col-lg-8 col-sm-8">
-                    <img src="{{data_holder.feature_image_url}}" class="img-fluid rounded" alt="featuered img">
+                    <img src="{{ data_holder.feature_image_url }}" style="width:100%; height:auto;" alt="featuered img">
                 </div>
+                <br>
                 <div class="col-lg-4 col-sm-4">
-                    <table border="1" class="table">
+                    <table border="3" class="table">
                         <thead>
                             <tr style="text-align: left;">
                                 <th></th>
@@ -79,11 +84,13 @@
                     </table>
                 </div>
             <div class="row">
-                <div class="col-lg-6 col-lg-"
+                <div class="col-lg-6 col-sm-6">
+
+                </div>
 
             </div>
             </div>
-        </div>
+        
     </div>
 </body>
 

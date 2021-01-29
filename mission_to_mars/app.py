@@ -4,22 +4,25 @@ import scrape_mars
 
 app=Flask(__name__)
 #set mongo connection
-mongo = PyMongo(app, uri="mongodb://localhost:27017/craigslist_app")
+mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_mission_app")
 
 @app.route("/")
 def index():
-    data_holder=mongo.db.data_holder.find_one()
-    return render_template("index.html",data_holder=data_holder)
+    #connect with mangoDb
+    destination_data = mongo.db.collection.find_one()
+    # render index template and put the dic name you will call the key from it"data_holder"equal connect
+    return render_template("index.html",data_holder=destination_data)
 
 
 
-
+# `/scrape` route to store the Python dictionary as a document in a mongo database collection
 @app.route("/scrape")
 def scraper():
-    data_holder=mongo.db.data_holder
-    mars_data=scrape_mars.scrape()
-    data_holder.update({},mars_data,upsert=True)
-    return render_template("index.html",data_holder=data_holder)
+   
+   #return func equal python file .function name
+    data_holder=scrape_mars.scrape()
+    mongo.db.collection.update({},data_holder,upsert=True)
+    return redirect("/")
 
 if __name__=="__main__":
     app.run(debug=True)
