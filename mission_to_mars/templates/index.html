@@ -15,11 +15,11 @@
         <h1 class=pt-5>
             Mession to Mars
         </h1>
-        <!-- <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Mars picture</a></p> -->
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
     <div class="container">
 
-        <h2>
+        <h3>
             Latest Mars News
         </h2>
         <hr>
@@ -37,7 +37,7 @@
             <div class="col-lg-4 col-sm-4">
                 <br>
                 <br>
-                <table border="3" class="table table-success table-bordered">
+                <table border="3" class="table table-success table-bordered table-sm">
                     <thead>
                         <tr style="text-align: left;">
                             <th></th>
@@ -89,16 +89,19 @@
                 </table>
 
             </div>
+            <h3 style="text-align: center; padding-top:3%; padding-bottom: 3%;">
+                Mars Hemispheres
+            </h3>
             <div class="row">
                 <div class="col-lg-6 col-sm-6">
-                    <p class="fw-bolder fs-4 p-4 list-group-item-success">
+                    <p class="fw-bolder fs-4 p-2 list-group-item-success">
                         {{ data_holder.hemisphere_image_urls[0].title }}
                     </p>
                     <img src="{{ data_holder.hemisphere_image_urls[0].img_url }}" class="img-fluid" alt="featuered img">
 
                 </div>
                 <div class="col-lg-6 col-sm-6">
-                    <p class="fw-bolder fs-4 p-4 list-group-item-success">
+                    <p class="fw-bolder fs-4 p-2 list-group-item-success">
                         {{ data_holder.hemisphere_image_urls[1].title }}
                     </p>
                     <img src="{{ data_holder.hemisphere_image_urls[1].img_url }}" class="img-fluid" alt="featuered img">
@@ -108,14 +111,14 @@
             </div>
             <div class="row">
                 <div class="col-lg-6 col-sm-6">
-                    <p class="fw-bolder fs-4 p-4 list-group-item-success">
+                    <p class="fw-bolder fs-4 p-2 list-group-item-success">
                         {{ data_holder.hemisphere_image_urls[2].title }}
                     </p>
                     <img src="{{ data_holder.hemisphere_image_urls[2].img_url }}" class="img-fluid" alt="featuered img">
 
                 </div>
                 <div class="col-lg-6 col-sm-6">
-                    <p class="fw-bolder fs-4 p-4 list-group-item-success">
+                    <p class="fw-bolder fs-4 p-2 list-group-item-success">
                         {{ data_holder.hemisphere_image_urls[3].title }}
                     </p>
                     <img src="{{ data_holder.hemisphere_image_urls[3].img_url }}" class="img-fluid" alt="featuered img">
