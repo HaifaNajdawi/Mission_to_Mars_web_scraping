@@ -17,9 +17,9 @@
 * HTML a template called `index.html` that will take the mars data dictionary and display all of the data in the appropriate HTML elements.
 
 And this is the final result...
-    ![](./mars_images/mars1.png)
-    ![](./mars_images/mars2.png)
-    ![](./mars_images/mars3.png)
+    ![](mission_to_mars/mars_images/mars1.png)
+    ![](mission_to_mars/mars_images/mars2.png)
+    ![](mission_to_mars/mars_images/mars3.png)
 
 
 
