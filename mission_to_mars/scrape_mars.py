@@ -55,10 +55,10 @@ def scrape():
     mars_fact_df = mars_fact_df.set_index("Description")
     
     #convert table to HTML code
-    html_table = mars_fact_df.to_html()  
+    data_holder["mars_table"]= mars_fact_df.to_html()  
     #replace new line with white space
-    data_holder["mars_table"]=html_table.replace('\n', '')
-    print(data_holder["mars_table"])
+    html_table=data_holder["mars_table"].replace('\n', '')
+    print(html_table)
     url4="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(url4)
     html=browser.html
