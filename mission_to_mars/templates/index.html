@@ -8,6 +8,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body style="background-color:antiquewhite;">
@@ -21,7 +22,7 @@
 
         <h3>
             Latest Mars News
-        </h2>
+        </h3>
         <hr>
         <p class="fs-4">
             *{{ data_holder.news_title }}
@@ -37,96 +38,48 @@
             <div class="col-lg-4 col-sm-4">
                 <br>
                 <br>
-                <table border="3" class="table table-success table-bordered table-sm">
-                    <thead>
-                        <tr style="text-align: left;">
-                            <th></th>
-                            <th>Mars</th>
-                        </tr>
-                        <tr>
-                            <th>Description</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>6,792 km</th>
-                            <td>Equatorial Diameter</td>
-                        </tr>
-                        <tr>
-                            <th>6,752 km</th>
-                            <td>Polar Diameter</td>
-                        </tr>
-                        <tr>
-                            <th>6.39 × 10^23 kg (0.11 Earths)</th>
-                            <td>Mass</td>
-                        </tr>
-                        <tr>
-                            <th>2 (Phobos &amp; Deimos)</th>
-                            <td>Moons</td>
-                        </tr>
-                        <tr>
-                            <th>227,943,824 km (1.38 AU)</th>
-                            <td>Orbit Distance</td>
-                        </tr>
-                        <tr>
-                            <th>687 days (1.9 years)</th>
-                            <td>Orbit Period</td>
-                        </tr>
-                        <tr>
-                            <th>-87 to -5 °C</th>
-                            <td>Surface Temperature</td>
-                        </tr>
-                        <tr>
-                            <th>2nd millennium BC</th>
-                            <td>First Record</td>
-                        </tr>
-                        <tr>
-                            <th>Egyptian astronomers</th>
-                            <td>Recorded By</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <h3 style="text-align: center; padding-top:3%; padding-bottom: 3%;">
-                Mars Hemispheres
-            </h3>
-            <div class="row">
-                <div class="col-lg-6 col-sm-6">
-                    <p class="fw-bolder fs-4 p-2 list-group-item-success">
-                        {{ data_holder.hemisphere_image_urls[0].title }}
-                    </p>
-                    <img src="{{ data_holder.hemisphere_image_urls[0].img_url }}" class="img-fluid" alt="featuered img">
-
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                    <p class="fw-bolder fs-4 p-2 list-group-item-success">
-                        {{ data_holder.hemisphere_image_urls[1].title }}
-                    </p>
-                    <img src="{{ data_holder.hemisphere_image_urls[1].img_url }}" class="img-fluid" alt="featuered img">
-
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-sm-6">
-                    <p class="fw-bolder fs-4 p-2 list-group-item-success">
-                        {{ data_holder.hemisphere_image_urls[2].title }}
-                    </p>
-                    <img src="{{ data_holder.hemisphere_image_urls[2].img_url }}" class="img-fluid" alt="featuered img">
-
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                    <p class="fw-bolder fs-4 p-2 list-group-item-success">
-                        {{ data_holder.hemisphere_image_urls[3].title }}
-                    </p>
-                    <img src="{{ data_holder.hemisphere_image_urls[3].img_url }}" class="img-fluid" alt="featuered img">
-
-                </div>
-
+                <div class="table bord table-success table-bordered table-sm"> {{data_holder.mars_table|safe}} </div>
             </div>
         </div>
+        <h3 style="text-align: center; padding-top:3%; padding-bottom: 3%;">
+            Mars Hemispheres
+        </h3>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6">
+                <p class="fw-bolder fs-4 p-2 list-group-item-success">
+                    {{ data_holder.hemisphere_image_urls[0].title }}
+                </p>
+                <img src="{{ data_holder.hemisphere_image_urls[0].img_url }}" class="img-fluid" alt="featuered img">
+
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <p class="fw-bolder fs-4 p-2 list-group-item-success">
+                    {{ data_holder.hemisphere_image_urls[1].title }}
+                </p>
+                <img src="{{ data_holder.hemisphere_image_urls[1].img_url }}" class="img-fluid" alt="featuered img">
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6">
+                <p class="fw-bolder fs-4 p-2 list-group-item-success">
+                    {{ data_holder.hemisphere_image_urls[2].title }}
+                </p>
+                <img src="{{ data_holder.hemisphere_image_urls[2].img_url }}" class="img-fluid" alt="featuered img">
+
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <p class="fw-bolder fs-4 p-2 list-group-item-success">
+                    {{ data_holder.hemisphere_image_urls[3].title }}
+                </p>
+                <img src="{{ data_holder.hemisphere_image_urls[3].img_url }}" class="img-fluid" alt="featuered img">
+
+            </div>
+
+        </div>
+
+
 
     </div>
 </body>

@@ -21,6 +21,7 @@ def scraper():
    
    #return func equal python file .function name
     data_holder=scrape_mars.scrape()
+    #update Mongo database with new data
     mongo.db.collection.update({},data_holder,upsert=True)
     return redirect("/")
 
