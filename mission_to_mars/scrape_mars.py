@@ -48,17 +48,20 @@ def scrape():
     print(len(tables))
     mars_fact_df=tables[0]
     #rename the columns
-    mars_fact_df.columns=["Mars","Description"]
+    mars_fact_df.columns=["Description","Mars"]
     #Remove colon from the table
-    mars_fact_df["Mars"] = mars_fact_df["Mars"].replace({':':''}, regex=True)
+    mars_fact_df["Description"] = mars_fact_df["Description"].replace({':':''}, regex=True)
     
     mars_fact_df = mars_fact_df.set_index("Description")
     
     #convert table to HTML code
-    data_holder["mars_table"]= mars_fact_df.to_html()  
+    
+    data_holder["mars_table"]= []
+    for i, row in mars_fact_df.iterrows():
+        data_holder['mars_table'].append((i, row['Mars']))
     #replace new line with white space
-    html_table=data_holder["mars_table"].replace('\n', '')
-    print(html_table)
+    # html_table=data_holder["mars_table"].replace('\n', '')
+    # print(html_table)
     url4="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(url4)
     html=browser.html
@@ -86,7 +89,6 @@ def scrape():
         # Return back after first click because it will be in the second page
         browser.back()
     return data_holder
-scrape()
 
 
 

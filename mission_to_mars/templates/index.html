@@ -38,48 +38,45 @@
             <div class="col-lg-4 col-sm-4">
                 <br>
                 <br>
-                <div class="table bord table-success table-bordered table-sm"> {{data_holder.mars_table|safe}} </div>
+                <div>
+                    <table  class="table bord table-success table-bordered table-sm">
+                        <thead>
+                            <tr style="text-align: left;">
+                                <th></th>
+                                <th>Mars</th>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in data_holder.mars_table %}
+                            <tr>
+                                <th>{{ row[0] }}</th>
+                                <td>{{ row[1] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <h3 style="text-align: center; padding-top:3%; padding-bottom: 3%;">
             Mars Hemispheres
         </h3>
         <div class="row">
+            {% for hemisphere in data_holder.hemisphere_image_urls %}
             <div class="col-lg-6 col-sm-6">
                 <p class="fw-bolder fs-4 p-2 list-group-item-success">
-                    {{ data_holder.hemisphere_image_urls[0].title }}
+                    {{ hemisphere.title }}
                 </p>
-                <img src="{{ data_holder.hemisphere_image_urls[0].img_url }}" class="img-fluid" alt="featuered img">
+                <img src="{{ hemisphere.img_url }}" class="img-fluid" alt="featuered img">
 
             </div>
-            <div class="col-lg-6 col-sm-6">
-                <p class="fw-bolder fs-4 p-2 list-group-item-success">
-                    {{ data_holder.hemisphere_image_urls[1].title }}
-                </p>
-                <img src="{{ data_holder.hemisphere_image_urls[1].img_url }}" class="img-fluid" alt="featuered img">
-
-            </div>
+            {% endfor %}
 
         </div>
-        <div class="row">
-            <div class="col-lg-6 col-sm-6">
-                <p class="fw-bolder fs-4 p-2 list-group-item-success">
-                    {{ data_holder.hemisphere_image_urls[2].title }}
-                </p>
-                <img src="{{ data_holder.hemisphere_image_urls[2].img_url }}" class="img-fluid" alt="featuered img">
-
-            </div>
-            <div class="col-lg-6 col-sm-6">
-                <p class="fw-bolder fs-4 p-2 list-group-item-success">
-                    {{ data_holder.hemisphere_image_urls[3].title }}
-                </p>
-                <img src="{{ data_holder.hemisphere_image_urls[3].img_url }}" class="img-fluid" alt="featuered img">
-
-            </div>
-
-        </div>
-
-
 
     </div>
 </body>

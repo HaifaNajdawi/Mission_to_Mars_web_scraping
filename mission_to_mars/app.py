@@ -17,13 +17,12 @@ def index():
 
 # `/scrape` route to store the Python dictionary as a document in a mongo database collection
 @app.route("/scrape")
-def scraper():
-   
-   #return func equal python file .function name
+def scraper():   
+    #return func equal python file .function name
     data_holder=scrape_mars.scrape()
     #update Mongo database with new data
     mongo.db.collection.update({},data_holder,upsert=True)
     return redirect("/")
 
-if __name__=="__main__":
-    app.run(debug=True)
+
+app.run(debug=True)
